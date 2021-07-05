@@ -56,11 +56,11 @@ public class Radix {
             int temp, unidades, decenas, centenas;
             // Variables para hacer el acomodo en las listas con base en las unidades, decenas y centenas.
 
-            for(i = 0; i < 3; i++){
-                for(j = 0; j <= lista.size() - 1; j++){
-                    if(i == 0){ //Unidades
+            for(i = 0; i < 3; i++){ // Máximo tres iteraciones por que serán los dígitos que están en el archivo .txt
+                for(j = 0; j <= lista.size() - 1; j++){ // Recorre cada elemento de la lista para asignarlo en su respectivo Queue.
+                    if(i == 0){ //En el primer valor de i lo recorremos por unidades
                         temp = lista.get(j);
-                        unidades = temp % 10;
+                        unidades = temp % 10; //Usamos el módulo para saber sus unidades.
 
                         if(unidades == 0){
                             kurama.get(0).add(lista.get(j));
@@ -69,9 +69,9 @@ public class Radix {
                         }else if(unidades == 2){
                             kurama.get(2).add(lista.get(j));
                         }else if(unidades == 3){
-                            kurama.get(3).add(lista.get(j));
-                        }else if(unidades == 4){
-                            kurama.get(4).add(lista.get(j));
+                            kurama.get(3).add(lista.get(j)); // Estas intrucciones se compara si la unidad es un dígito dentro de 0-9
+                        }else if(unidades == 4){             // por lo que el respectivo número se ingresa en en la lista de colas. Y
+                            kurama.get(4).add(lista.get(j)); // se realiza hasta que termine el primer ciclo for.
                         }else if(unidades == 5){
                             kurama.get(5).add(lista.get(j));
                         }else if(unidades == 6){
@@ -145,30 +145,26 @@ public class Radix {
                 System.out.println("Llamada a la función --> lista = " + lista);
             }
 
-            if(opc == 2){
+            // En caso de que el usuario haya decidido ordenarlo de forma descendente, una vez obtenido la lista ordenada.
+            if(opc == 2){ // se vuelve arreglo para "invertir" los valores.
                 Object[] array = new Object[lista.size()];
                 for(int a = 0; a < lista.size(); a++){
-                    array = lista.toArray();
+                    array = lista.toArray(); // Se convierte en arreglo.
                 }
                 lista.clear();
                 for(int b = array.length - 1; b >= 0 ; b--){
-                    lista.add((Integer) array[b]);
+                    lista.add((Integer) array[b]);  // Se pasan los valores desde la última posición.
                 }
             }
 
-            StringBuilder res = new StringBuilder();
-            int auxiliar;
-            String auxiliar2;
-            for (Integer integer : lista) {
-                auxiliar = integer;
-                auxiliar2 = String.valueOf(auxiliar);
-                res.append(auxiliar2).append(",");
+            StringBuilder res = new StringBuilder(); // Método StringBuilder para concatenar los valores.
+            for (Integer integer : lista){ // Con la lista ordenada se pasa a StringBuilder para volver a pasarla al archivo.
+                res.append(integer).append(",");
             }
-            FileWriter fichero = new FileWriter(archivo);
-            PrintWriter pw = new PrintWriter(fichero);
+            FileWriter fichero = new FileWriter(archivo); // Se crea un objeto para escribir en el archivo .txt
+            PrintWriter pw = new PrintWriter(fichero); // Objeto para escribir en el archivo .txt
             pw.println(res);
-            pw.close();
-
+            pw.close(); // Se cierra el archivo.
 
         }
 
@@ -181,15 +177,14 @@ public class Radix {
      */
 
     public static void lisOrdenar(List<Integer> lis, List<Queue<Integer>> lis1){
-        lis.clear();
-        for(Queue<Integer> princi:lis1){
-            Object[] arreglo = princi.toArray();
-            for (Object o : arreglo) {
-                lis.add((Integer) o);
+        lis.clear(); // Se limpia la lista que tiene los elementos desordenados.
+        for(Queue<Integer> princi:lis1){ //For each que recorre las colas
+            Object[] arreglo = princi.toArray(); // Se convierte la cola en una arreglo objeto.
+            for (Object o : arreglo) { //Con un for each se agrega los elementos del arreglo a la lista.
+                lis.add((Integer) o); //Se castea el arreglo de objetos a Integer.
             }
-            princi.clear();
+            princi.clear(); // Se limpia la Queue.
         }
-
     }
 
     /**

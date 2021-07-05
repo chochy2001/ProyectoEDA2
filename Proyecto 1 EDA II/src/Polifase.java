@@ -1,11 +1,16 @@
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class Polifase {
 
     public static void polifase(File archivo) throws IOException {
         Scanner sc = new Scanner(System.in);//Creamos un nuevo Objeto del tipo Scanner para poder obtener las entradas del usuario
         float opc;
+
+        // Se crean 3 listas de arreglos, la primera para ser la lista original y las otras 2 auxiliares para contener los bloques
+        ArrayList <ArrayList<Integer>> list = new ArrayList(); // Lista de arreglos principal.
+        ArrayList <ArrayList<Integer>> temporal1 = new ArrayList(); // Lista de arreglos temporal para los bloques del archivo F1.
+        ArrayList <ArrayList<Integer>> temporal2 = new ArrayList();  //Lista de arreglos temporal para los bloques del archivo F2.
 
         LeerArchivo ls = new LeerArchivo(); //Creamos un nuevo Objeto de la clase LeerArchivo
         String temp1 = archivo.getAbsolutePath(); //Obtenemos el path absoluto del archivo y se lo asignamos a una variable de tipo string
@@ -53,7 +58,7 @@ public class Polifase {
         if(f1.createNewFile() && f2.createNewFile()){ //Sí no existen los archivos con esta
             System.out.println("Creando los archivos auxiliares...");
         }else{
-            System.out.println("Valio verga no estas viendo");
+            System.out.println("Los archivos ya existen");
         }
 
 
@@ -69,9 +74,14 @@ public class Polifase {
         //MergeSort.heap(numeros, numeros.length);
 
         System.out.println("¿Cuántos valores quieres que se tomen a leer?");
-        opc = sc.nextShort();
-        int[] arrfichero1 = new int[numeros.length];
-        int[] arrfichero2 = new int[numeros.length];
+        opc = sc.nextShort();//Se le pide al usuario de cuantos digitos se van a hacer los bloques iniciales
+
+        //Se declaran 2 listas de arreglos
+
+
+
+        //int[] arrfichero1 = new int[numeros.length];
+        //int[] arrfichero2 = new int[numeros.length];
 
 
         //float numeros1 = numeros.length;
@@ -86,9 +96,9 @@ public class Polifase {
 
         while(i <= bloques){ // Condición para no iterar más bloques de los que se tiene.
             if((i % 2)== 0){
-                while(global < opc && iterar < numeros.length){
-                    arrfichero2[iterar] = numeros[iterar];
-                    System.out.println("arrfichero2 = " + arrfichero2[iterar]);
+                while(global < opc && (iterarfichero1 + iterarfichero2) < list.size()){
+                    temporal2 = (ArrayList<ArrayList<Integer>>) Collections.singletonList(list.get(iterarfichero2));
+                    System.out.println("list2 = " + list.get(iterarfichero2));
                     global += 1;
                     System.out.println("global2 = " + global);
                     iterarfichero2++;
@@ -108,13 +118,6 @@ public class Polifase {
             }
             i++;
         }
-
-
-
-
-
-
-
 
     }
 }

@@ -5,17 +5,17 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);//Creamos un nuevo objeto de la clase Scanner para realizar entrada por el teclado.
-        short opc;//Variable para poder seleccionar el tipo de ordenamiento.
+        Scanner sc = new Scanner(System.in);// Creamos un nuevo objeto de la clase Scanner para realizar entrada por el teclado.
+        short opc;// Variable para poder seleccionar el tipo de ordenamiento.
         String nombreArchivo;
         System.out.println("Bienvenido escriba el nombre del archivo ( seguido de extensión .txt)");
-        nombreArchivo = sc.nextLine();//Recibimos el nombre del archivo, dado por el usuario.
+        nombreArchivo = sc.nextLine();// Recibimos el nombre del archivo, dado por el usuario.
 
         File carpeta = new File("G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src"); //Se pasa la dirección de la carpeta
-        File archivo = null; //Se crea la referencia al archivo si es que existe
-        File[] list = carpeta.listFiles(); //Se crea una lista de los archivos que se encuentren en la carpeta
+        File archivo = null; // Se crea la referencia al archivo si es que existe
+        File[] list = carpeta.listFiles(); // Se crea una lista de los archivos que se encuentren en la carpeta
 
-        if(list != null){ //Si la carpeta contiene archivos entra en el if
+        if(list != null){ // Si la carpeta contiene archivos entra en el if
             for(File recorrerCarpeta: list){
                 if(nombreArchivo.equalsIgnoreCase(recorrerCarpeta.getName())){//Evaluamos si el nombre del archivo
                     // (Ignorando sus mayusculas o minusculas es igual a alguno que se encuentre en la lista previamente creada).
@@ -43,7 +43,6 @@ public class Principal {
                     break;
                 case 2:
                     //Entramos a la clase correspondiente al Ordenamiento por Polifase
-
                     break;
                 case 3:
                     Radix.radix(archivo);//Entramos a la clase correspondiente al Ordenamiento por Polifase

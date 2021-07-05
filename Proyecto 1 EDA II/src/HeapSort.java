@@ -24,11 +24,11 @@ public class HeapSort {
         buildHeap(arr1,size);
         int i;
         for(i = size - 1; i > 0; i--){
-            swap(arr,0, heapSize);
+            swap(arr1,0, heapSize);
             heapSize--;
             System.out.println("Iteracion HS:");
-            printArray(arr,size);
-            heapify(arr, 0,size);
+            printArray(arr1);
+            heapify(arr1, 0,size);
         }
     }
 
@@ -73,10 +73,10 @@ public class HeapSort {
                 heapify(arr1, largest, size);
             }
     }
-    public static void swap(int[] arr, int i, int largest){
-        int t = arr[i];
-        arr[i] = arr[largest];
-        arr[largest] = t;
+    public static void swap(ArrayList<Integer> arr1, int i, int largest){
+        int t = arr1.get(i);
+        arr1.set(i, arr1.get(largest));
+        arr1.set(largest, t);
     }
 
     /**
