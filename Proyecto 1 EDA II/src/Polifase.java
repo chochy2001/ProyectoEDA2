@@ -78,7 +78,7 @@ public class Polifase {
         while(i <= bloques){ // Condición para no iterar más bloques de los que se tiene.
             if((i % 2)== 0){
                 while(global < opc && (iterarfichero1 + iterarfichero2) < list.size()){
-                    temporal2 = (ArrayList)(list.get(iterarfichero2));
+                    temporal2.add((ArrayList)(list.get(iterarfichero2)));
                     System.out.println("list2 = " + list.get(iterarfichero2));
                     global += 1;
                     System.out.println("global2 = " + global);
