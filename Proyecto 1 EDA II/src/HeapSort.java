@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * @author Luis Aldo Gomez Bolaños, Karen Mariel Bastida Vargas y Jorge Salgado Miranda
  * @version 1.0
  */
+
 public class HeapSort {
 
     static int heapSize;

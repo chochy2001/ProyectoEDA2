@@ -55,4 +55,5 @@ public class Principal {
             }
         }while(opc > 0 && opc < 4);//El bucle de la seleccion continua mientras el valor ingresado por el usuario sea mayor a 0 y menor a 4
     }
+    //se tiene que ver cada una de las iteraciones en el archivo de las listas. o al fina
 }
