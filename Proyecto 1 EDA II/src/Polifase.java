@@ -12,41 +12,48 @@ public class Polifase {
         String Arch2 = "G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src\\f2.txt";// Se declara la ruta absoluta del fichero auxiliar 2 donde se guardaran los bloques de números ordenados.
 
         // Se crean 3 listas de arreglos, la primera para ser la lista original y las otras 2 auxiliares para contener los bloques
-        ArrayList <ArrayList<Integer>> list = new ArrayList(); // Lista de arreglos principal.
-        ArrayList <ArrayList<Integer>> temporal1 = new ArrayList(); // Lista de arreglos temporal para los bloques del archivo F1.
-        ArrayList <ArrayList<Integer>> temporal2 = new ArrayList();  //Lista de arreglos temporal para los bloques del archivo F2.
+        ArrayList<ArrayList<Integer>> list = new ArrayList(); // Lista de arreglos principal.
+        ArrayList<ArrayList<Integer>> temporal1 = new ArrayList(); // Lista de arreglos temporal para los bloques del archivo F1.
+        ArrayList<ArrayList<Integer>> temporal2 = new ArrayList();  //Lista de arreglos temporal para los bloques del archivo F2.
 
         LeerArchivo ls = new LeerArchivo(); //Creamos un nuevo Objeto de la clase LeerArchivo
         String temp1 = archivo.getAbsolutePath(); //Obtenemos el path absoluto del archivo y se lo asignamos a una variable de tipo string
         System.out.println(ls.leerTXT(temp1)); //Imprimimos en pantalla el retorno del metodo del nuevo objeto del tipo leer archivo
         String aux = ls.leerTXT(temp1);//Asignamos el valor del contenido del archivo a la variable String para una mejor manipulación
-        String [] text = aux.split(",");//Seleccionamos el tipo de división que separa las claves.
+        String[] text = aux.split(",");//Seleccionamos el tipo de división que separa las claves.
 
         ArrayList<Integer> arr2 = new ArrayList<>();
         HeapSort.printArray(arr2);
         HeapSort.heap(arr2, arr2.size());
 
-        for(int j = 0; j < 5; j++){
-            ArrayList <Integer> arr1 = new ArrayList<>();
+        int valor = (int) Math.ceil(text.length/opc);//Redondea la división del total de número en la lista entre los valores en los bloques, y lo redondea hacia arriba.
+        for (int j = 0; j < valor; j++) { //creamos la lista con base a la cantidad de bloques que determina el usuario.
+            ArrayList<Integer> arr1 = new ArrayList<>();
             list.add(arr1);
         }
 
-        for(int i = 0; i < text.length; i++){ // Ciclo para agregar los números en la lista principal
+        //Separamos las entradas a la lista de indices con base a la cantidad de divisiones que quiere que haga el usuario.
+        int aux1 = 0;//Variable para ir iterando los indices de la lista.
 
-            list.get(0).add(Integer.valueOf(text[i]));
-            //System.out.println(list.get(0).add(Integer.valueOf(text[i])));
-            //Se agregan a la lista con la clase envolvente para convertirlos de String a entero.
+        for (int i = 0; i < list.size(); i++) { // Ciclo para agregar los números en la lista principal
+            for (int j = 0; j < opc; j++) { //Este ciclo for recorre los índices de los números en los índices de la lista principal.
+                if(aux1 < text.length ){//Se hace esto para que el valor de aux1 no rebase el valor de la longitud de la lista y se salga del rango.
+                    list.get(i).add(Integer.valueOf(text[aux1]));
+                    // Se obtiene con un método get el índice de la línea principal, y se agrega el valor a otra lista determinada.
+                    aux1++; //Se itera para obtener todas los números del arreglo text
+                }
+                //Se agregan a la lista con la clase envolvente para convertirlos de String a entero.
+            }
         }
 
-        for(ArrayList<Integer> prin: list){
-            System.out.println("Arraylist:" + prin);
-        }
+        System.out.println("Imprimimos la lista:");
+        System.out.println(list);
 
-        File f1 = new File("G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src", "f1.txt");
-        //Creamos un nuevo archivo donde se van a ir poniendo las iteraciones del ordenamiento por Polifase
+            File f1 = new File("G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src", "f1.txt");
+            //Creamos un nuevo archivo donde se van a ir poniendo las iteraciones del ordenamiento por Polifase
 
-        File f2 = new File("G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src", "f2.txt");
-        //Creamos un nuevo archivo donde se van a ir poniendo las iteraciones del ordenamiento por Polifase
+            File f2 = new File("G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src", "f2.txt");
+            //Creamos un nuevo archivo donde se van a ir poniendo las iteraciones del ordenamiento por Polifase
 
         if(f1.createNewFile() && f2.createNewFile()){ //Sí no existen los archivos con esta
             System.out.println("Creando los archivos auxiliares...");
@@ -58,14 +65,25 @@ public class Polifase {
         System.out.println("¿Cuántos valores quieres que se tomen a leer?");
         opc = sc.nextShort();//Se le pide al usuario de cuantos digitos se van a hacer los bloques iniciales
 
-        List <Integer> auxiliar1 = new ArrayList<>();
+            ArrayList<Integer> auxiliar1 = new ArrayList<>();
+            ArrayList<Integer> auxiliar2 = new ArrayList<>();
 
-/*
-        for(int i = 0; i < list.size(); i++){
-            auxiliar1.add(list.get(i).get());
-        }
+            int w = 0;//Variable para contabilizar el indice del arraylist
 
- */
+           /* for (int i = 0; i < list.size(); i++) {
+
+                auxiliar1.add(list.get(w).get(i));
+                for (int j = 0; j < opc; j++) {
+                    temporal1.add(auxiliar1);
+                    temporal2.add(auxiliar2);
+                }
+            }*/
+
+
+            //DistribucionArchivos(temporal1, Arch1, temporal2, Arch2);
+
+
+
 
 
         /*
@@ -103,9 +121,14 @@ public class Polifase {
             i++;
         }*/
 
+        }
+
+
+   /* public static void DistribucionArchivos(ArrayList <ArrayList<Integer>> lista1,String direccionArchivo1,ArrayList <ArrayList<Integer>> lista2,String direccionArchivo2){
 
 
 
 
+    }*/
     }
-}
+

@@ -12,9 +12,8 @@ public class EscrituraArchivo {
                 PrintWriter pw = new PrintWriter(new FileOutputStream(ubicacionArchivo,true));
 
                 for (int i = 0; i < listArrayList.size(); i++) {
-                    pw.append("["+listArrayList.get(i)+ "]\n");
+                    pw.append("\n["+listArrayList.get(i)+ "]\n");
                 }
-
                 pw.close();
 
             } catch (Exception e) {
