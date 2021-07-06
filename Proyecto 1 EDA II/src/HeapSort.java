@@ -63,7 +63,7 @@ public class HeapSort {
         int r = 2 * i + 2;
         int largest;
 
-        if(l <= heapSize && arr1.get(i) > arr1.get(i))
+        if(l <= heapSize && arr1.get(l) > arr1.get(i))
             largest = l;
         else
             largest = i;

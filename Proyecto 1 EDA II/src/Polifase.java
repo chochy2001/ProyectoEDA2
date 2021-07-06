@@ -30,16 +30,16 @@ public class Polifase {
             ArrayList <Integer> arr1 = new ArrayList<>();
             list.add(arr1);
         }
-        /*
-        for(int i = 0; i < text.length; i++){ // Ciclo para agregar los números en la lista principal.
-            //list.get(0).add(Integer.valueOf(text[i]));
-            System.out.println(list.get(0).add(Integer.valueOf(text[i])));
-            // Se agregan a la lista con la clase envolvente para convertirlos de String a entero.
+
+        for(int i = 0; i < text.length; i++){ // Ciclo para agregar los números en la lista principal
+
+            list.get(0).add(Integer.valueOf(text[i]));
+            //System.out.println(list.get(0).add(Integer.valueOf(text[i])));
+            //Se agregan a la lista con la clase envolvente para convertirlos de String a entero.
         }
 
-
-       for(int j = 0; j < numeros.length; j++){
-            System.out.println(numeros[j]);
+        for(ArrayList<Integer> prin: list){
+            System.out.println("Arraylist:" + prin);
         }
 
         File f1 = new File("G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src", "f1.txt");
@@ -55,19 +55,20 @@ public class Polifase {
         }
 
 
-        String file1 = f1.getAbsolutePath();
-        String file2 = f2.getAbsolutePath();
-
-        FileWriter fichero1 = new FileWriter(f1);
-        PrintWriter pw1 = new PrintWriter(fichero1);
-        FileWriter fichero2 = new FileWriter(f1);
-        PrintWriter pw2 = new PrintWriter(fichero1);
-
-        pw1.close();
-
         System.out.println("¿Cuántos valores quieres que se tomen a leer?");
         opc = sc.nextShort();//Se le pide al usuario de cuantos digitos se van a hacer los bloques iniciales
 
+        List <Integer> auxiliar1 = new ArrayList<>();
+
+/*
+        for(int i = 0; i < list.size(); i++){
+            auxiliar1.add(list.get(i).get());
+        }
+
+ */
+
+
+        /*
         int bloques = (int) Math.ceil(text.length / opc); // En esta línea se divide la en bloques.
         int i = 1; //Esta variable es para saber cuantas listas de arreglos se van a generar
 
@@ -85,20 +86,26 @@ public class Polifase {
                     iterarfichero2++;
                     System.out.println("iterar2 = " + iterarfichero2);
                 }
+                EscrituraArchivo.escribirDatos(temporal2, Arch2);
                 global = 0;
             }else{
                 while(global < opc && (iterarfichero1 + iterarfichero2) < list.size()){
-                    temporal1 = (ArrayList<ArrayList<Integer>>) Collections.singletonList(list.get(iterarfichero1));
+                    temporal1.add((ArrayList)(list.get(iterarfichero1)));
                     System.out.println("arrfichero1 = " + list.get(iterarfichero1));
                     global += 1;
                     System.out.println("global2 = " + global);
                     iterarfichero1++;
                     System.out.println("iterar1 = " + iterarfichero1);
                 }
+                EscrituraArchivo.escribirDatos(temporal1, Arch1);
                 global = 0;
             }
             i++;
-        }
+        }*/
+
+
+
+
 
     }
 }
