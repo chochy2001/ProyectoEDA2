@@ -9,7 +9,7 @@ public class Polifase {
 
         String Arch0 = "G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src\\prueba.txt"; // Se declara la ruta absoluta del fichero 0 en donde se encuentra la lista a ordenar.
         String Arch1 = "G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src\\f1.txt"; // Se declara la ruta absoluta del fichero auxiliar 1 donde se guardaran los bloques de números ordenados.
-        String Arch2 = "G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src\\f0.txt";// Se declara la ruta absoluta del fichero auxiliar 2 donde se guardaran los bloques de números ordenados.
+        String Arch2 = "G:\\Proyecto 1 EDA II\\Proyecto 1 EDA II\\src\\f2.txt";// Se declara la ruta absoluta del fichero auxiliar 2 donde se guardaran los bloques de números ordenados.
 
         // Se crean 3 listas de arreglos, la primera para ser la lista original y las otras 2 auxiliares para contener los bloques
         ArrayList <ArrayList<Integer>> list = new ArrayList(); // Lista de arreglos principal.
