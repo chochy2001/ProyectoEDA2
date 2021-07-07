@@ -124,11 +124,12 @@ public class Polifase {
         }
 
 
-   /* public static void DistribucionArchivos(ArrayList <ArrayList<Integer>> lista1,String direccionArchivo1,ArrayList <ArrayList<Integer>> lista2,String direccionArchivo2){
+    public static void DistribucionArchivos(ArrayList<ArrayList<Integer>> lista1,String direccionArchivo1, ArrayList<ArrayList<Integer>> lista2,String direccionArchivo2){
 
+    EscrituraArchivo.escribirDatos(lista1,direccionArchivo1);
+    EscrituraArchivo.escribirDatos(lista2,direccionArchivo2);
 
-
-
-    }*/
     }
+
+}
 
